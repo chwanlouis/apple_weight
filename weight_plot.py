@@ -33,7 +33,8 @@ class WeightPlotter(object):
         datetime_list, weight_list = self.soup_boiler(weight_soup)
         weight_series = pd.Series(weight_list, index=datetime_list)
         weight_series.plot('line', grid=True, figsize=(16,9))
-        plt.savefig('weight_timeseries.png')
+        string_add = self.file_name.replace('apple_data_export/export_cda_', '').replace('.xml', '')
+        plt.savefig('weight_timeseries_%s.png' % string_add)
 
 
 if __name__ == '__main__':
